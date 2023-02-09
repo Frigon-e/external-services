@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+
+  wings:
+    image: ghcr.io/pterodactyl/wings:v1.6.4
+    restart: always
+    networks:
+      - web
+      - wings0
+    ports:
+      - "2022:2022"
+    tty: true
+    environment:
+      TZ: "America/Vancouver"
+      WINGS_UID: 988
+      WINGS_GID: 988
+      WINGS_USERNAME: pterodactyl
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/lib/docker/containers/:/var/lib/docker/containers/"
+      - "/tmp/pterodactyl/:/tmp/pterodactyl/"
+      - "/etc/pterodactyl/:/etc/pterodactyl/"
+      - "/var/lib/pterodactyl/:/var/lib/pterodactyl/"
+      - "/var/log/pterodactyl/:/var/log/pterodactyl/"
+      - "/etc/ssl/certs:/etc/ssl/certs:ro"
+    labels:
+      - "traefik.enable=true"
+      # HTTP
+      - "traefik.http.routers.pterodactyl_wings.entrypoints=http"
+      - "traefik.http.routers.pterodactyl_wings.rule=Host(`gameserver-node-01.frigon-e.ca`)"
+      - "traefik.http.middlewares.pterodactyl_wings-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.pterodactyl_wings.middlewares=pterodactyl_wings-https-redirect"
+      # HTTPS
+      - "traefik.http.routers.pterodactyl_wings-secure.entrypoints=https"
+      - "traefik.http.routers.pterodactyl_wings-secure.rule=Host(`gameserver-node-01.frigon-e.ca`)"
+      - "traefik.http.routers.pterodactyl_wings-secure.tls=true"
+      - "traefik.http.routers.pterodactyl_wings-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.pterodactyl_wings-secure.loadbalancer.server.port=443"
+      - "traefik.docker.network=web"
+networks:
+  web:
+    external: true
+  wings0:
+    name: wings0
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.22.0.0/16"
+    driver_opts:
+      com.docker.network.bridge.name: wings0

@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - web
+    ports:
+      - 80:80
+      - 8080:8080
+      - 443:443
+      - 8443:8443
+      - 27001:27001
+    environment:
+      - CF_API_EMAIL=ebfrigon@gmail.com
+      #- CF_DNS_API_TOKEN=HvS8QiikGnezUlD0Lm6a0CbWrf0cvx_u4I69OhMa
+      - CF_API_KEY=1f15fb1925f469ba8587bda0da35ad0c17490
+      # be sure to use the correct one depending on if you are using a token or key
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/smurfssmur/traefik/data/traefik.yml:/traefik.yml:ro
+      - /home/smurfssmur/traefik/data/acme.json:/acme.json
+      - /home/smurfssmur/traefik/data/config.yml:/config.yml:ro
+      - traefik-logs:/var/log/traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`traefik-dashboard.frigon-e.ca`)"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=smurfssmur:$$apr1$$dlgy6beh$$H9xNqwX8aXfyre47BfMOq."
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik-dashboard.frigon-e.ca`)"
+      - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=frigon-e.ca"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.frigon-e.ca"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+
+networks:
+  web:
+   external: true
+volumes:
+  traefik-logs:

@@ -1,0 +1,900 @@
+ INFO: [Nov 28 18:34:02.777] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 18:34:02.777] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 18:34:02.777] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 18:34:02.777] checking for pterodactyl system user username={0 0}
+ INFO: [Nov 28 18:34:02.777] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 18:34:02.777] fetching list of servers from API
+ INFO: [Nov 28 18:34:03.036] processing servers returned by the API total_configs=0
+ INFO: [Nov 28 18:34:03.036] finished processing server configurations duration=100.761µs
+ INFO: [Nov 28 18:34:03.038] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 18:34:03.038] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 18:34:03.039] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ INFO: [Nov 28 18:35:23.113] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 18:35:23.113] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 18:35:23.113] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 18:35:23.113] checking for pterodactyl system user username={0 0}
+ INFO: [Nov 28 18:35:23.113] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 18:35:23.113] fetching list of servers from API
+ INFO: [Nov 28 18:35:23.336] processing servers returned by the API total_configs=0
+ INFO: [Nov 28 18:35:23.336] finished processing server configurations duration=212.847µs
+ INFO: [Nov 28 18:35:23.337] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 18:35:23.337] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 18:35:23.338] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ERROR: [Nov 28 18:42:18.785] failed to create server environment during install process error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/server.(*Server).CreateEnvironment
+	github.com/pterodactyl/wings/server/server.go:250
+github.com/pterodactyl/wings/router.postCreateServer.func1
+	github.com/pterodactyl/wings/router/router_system.go:73
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:42:41.605] acquired exclusive lock on power actions, processing event... action=start lock_id=7ec2ba59-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:41.605] syncing server configuration with panel server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:41.773] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:41.773] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:41.774] completed server preflight, starting boot process... server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:42.655] releasing exclusive lock for power action action=start lock_id=7ec2ba59-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:42.655] detected server as entering a crashed state; running crash handler server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ERROR: [Nov 28 18:42:42.655] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2 error_identifier=69f95c3e-b6d0-41d5-9914-0f3ec5faf2ca event=set state server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:42:42.656] acquired exclusive lock on power actions, processing event... action=start lock_id=7f631b4f-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:42.656] syncing server configuration with panel server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:42.772] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:42.772] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:42.773] completed server preflight, starting boot process... server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:43.621] releasing exclusive lock for power action action=start lock_id=7f631b4f-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ERROR: [Nov 28 18:42:43.621] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:42:43.621] detected server as entering a crashed state; running crash handler server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:43.621] did not restart server after crash; occurred too soon after the last server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:52.524] acquired exclusive lock on power actions, processing event... action=start lock_id=8544f1df-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:52.524] syncing server configuration with panel server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:52.638] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:52.638] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:52.639] completed server preflight, starting boot process... server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:53.496] releasing exclusive lock for power action action=start lock_id=8544f1df-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ERROR: [Nov 28 18:42:53.496] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2 error_identifier=a4e873b0-05cb-425b-af71-c211cd942aa0 event=set state server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:42:53.496] detected server as entering a crashed state; running crash handler server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:42:53.496] did not restart server after crash; occurred too soon after the last server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:17.717] acquired exclusive lock on power actions, processing event... action=start lock_id=94491a97-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:17.718] syncing server configuration with panel server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:17.843] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:17.844] performing server limit modification on-the-fly server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:17.845] completed server preflight, starting boot process... server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:18.761] releasing exclusive lock for power action action=start lock_id=94491a97-6f8f-11ed-8a46-0242ac130008 server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ERROR: [Nov 28 18:43:18.761] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2 error_identifier=570a5d62-60fb-47a8-a8c7-16677ebc46ad event=set state server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/7f881fd9-1c3a-4d07-b157-0250d2295ec2
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:43:18.761] detected server as entering a crashed state; running crash handler server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:18.762] did not restart server after crash; occurred too soon after the last server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ INFO: [Nov 28 18:43:32.734] destroying all registered sinks for server instance server=7f881fd9-1c3a-4d07-b157-0250d2295ec2
+ERROR: [Nov 28 18:44:56.696] failed to create server environment during install process error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/server.(*Server).CreateEnvironment
+	github.com/pterodactyl/wings/server/server.go:250
+github.com/pterodactyl/wings/router.postCreateServer.func1
+	github.com/pterodactyl/wings/router/router_system.go:73
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:45:14.812] acquired exclusive lock on power actions, processing event... action=restart lock_id=da144ed8-6f8f-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ WARN: [Nov 28 18:45:14.812] no stop configuration detected for environment, using termination procedure container_id=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:14.813] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:14.940] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:14.940] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:14.941] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:20.937] releasing exclusive lock for power action action=restart lock_id=da144ed8-6f8f-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 18:45:20.938] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=2fcb5e4a-30e3-42b9-8be7-bf53d653f6e2 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:161
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:45:20.938] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:20.938] acquired exclusive lock on power actions, processing event... action=start lock_id=ddbb1946-6f8f-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:20.938] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:21.061] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:21.062] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:21.062] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:22.014] releasing exclusive lock for power action action=start lock_id=ddbb1946-6f8f-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 18:45:22.014] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 18:45:22.014] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 18:45:22.014] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:36.899] acquired exclusive lock on power actions, processing event... action=start lock_id=1444597c-6f9b-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:36.899] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:37.088] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:37.089] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:37.090] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:38.179] releasing exclusive lock for power action action=start lock_id=1444597c-6f9b-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:05:38.179] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=31fbb902-ed26-4c8c-891a-a80e8fee4525 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:05:38.179] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:38.180] acquired exclusive lock on power actions, processing event... action=start lock_id=1507ce6f-6f9b-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:38.180] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:38.290] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:38.291] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:38.292] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:39.373] releasing exclusive lock for power action action=start lock_id=1507ce6f-6f9b-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:05:39.374] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:05:39.374] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:05:39.374] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:24.365] acquired exclusive lock on power actions, processing event... action=start lock_id=962fef6a-6f9c-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:24.366] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:24.633] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:24.634] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:24.635] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:25.609] releasing exclusive lock for power action action=start lock_id=962fef6a-6f9c-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:16:25.609] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=0eea4cfd-e3fa-4718-8cee-b3061b0dac59 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:16:25.609] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:25.610] acquired exclusive lock on power actions, processing event... action=start lock_id=96edc928-6f9c-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:25.610] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:25.722] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:25.722] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:25.723] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:26.687] releasing exclusive lock for power action action=start lock_id=96edc928-6f9c-11ed-8a46-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:16:26.687] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:16:26.687] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:16:26.688] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:06.533] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 20:18:06.533] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 20:18:06.534] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 20:18:06.534] checking for pterodactyl system user username={988 988}
+ INFO: [Nov 28 20:18:06.534] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 20:18:06.534] fetching list of servers from API
+ INFO: [Nov 28 20:18:06.762] processing servers returned by the API total_configs=1
+ INFO: [Nov 28 20:18:06.762] creating new server object from API response server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:06.762] finished processing server configurations duration=643.029µs
+ INFO: [Nov 28 20:18:06.764] finished loading configuration for server server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:06.764] configuring server environment and restoring to previous state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:06.764] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 20:18:06.764] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 20:18:06.765] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ INFO: [Nov 28 20:18:15.421] acquired exclusive lock on power actions, processing event... action=start lock_id=d8619dce-6f9c-11ed-8737-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:15.421] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:15.552] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:15.552] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:15.554] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:16.605] releasing exclusive lock for power action action=start lock_id=d8619dce-6f9c-11ed-8737-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:18:16.605] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=1461d240-9a74-4cd1-8aff-106eb7827829 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:18:16.605] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:16.606] acquired exclusive lock on power actions, processing event... action=start lock_id=d9166c3c-6f9c-11ed-8737-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:16.606] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:16.728] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:16.729] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:16.729] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:17.699] releasing exclusive lock for power action action=start lock_id=d9166c3c-6f9c-11ed-8737-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:18:17.699] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:18:17.700] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:18:17.700] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:20:46.743] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 20:20:46.743] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 20:20:46.743] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 20:20:46.743] checking for pterodactyl system user username={988 988}
+ INFO: [Nov 28 20:20:46.743] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 20:20:46.743] fetching list of servers from API
+ INFO: [Nov 28 20:20:46.953] processing servers returned by the API total_configs=1
+ INFO: [Nov 28 20:20:46.953] creating new server object from API response server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:20:46.953] finished processing server configurations duration=445.47µs
+ INFO: [Nov 28 20:20:46.955] finished loading configuration for server server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:20:46.955] configuring server environment and restoring to previous state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:20:46.955] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 20:20:46.955] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 20:20:46.956] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ INFO: [Nov 28 20:21:18.401] acquired exclusive lock on power actions, processing event... action=start lock_id=45721f42-6f9d-11ed-a622-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:18.401] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:18.514] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:18.514] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:18.516] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:19.460] releasing exclusive lock for power action action=start lock_id=45721f42-6f9d-11ed-a622-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:21:19.460] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=8d50779f-673d-429b-8fac-57bc23356d60 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:21:19.460] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:19.460] acquired exclusive lock on power actions, processing event... action=start lock_id=4613dc03-6f9d-11ed-a622-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:19.460] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:19.571] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:19.571] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:19.572] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:20.547] releasing exclusive lock for power action action=start lock_id=4613dc03-6f9d-11ed-a622-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:21:20.547] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:21:20.547] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:21:20.548] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:29:13.438] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 20:29:13.438] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 20:29:13.438] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 20:29:13.438] checking for pterodactyl system user username={988 988}
+ INFO: [Nov 28 20:29:13.438] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 20:29:13.438] fetching list of servers from API
+ INFO: [Nov 28 20:29:13.685] processing servers returned by the API total_configs=1
+ INFO: [Nov 28 20:29:13.685] creating new server object from API response server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:29:13.686] finished processing server configurations duration=967.498µs
+ INFO: [Nov 28 20:29:13.688] finished loading configuration for server server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:29:13.688] configuring server environment and restoring to previous state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:29:13.688] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 20:29:13.688] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 20:29:13.689] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ INFO: [Nov 28 20:30:49.161] acquired exclusive lock on power actions, processing event... action=start lock_id=99a544d7-6f9e-11ed-a3d4-0242ac160002 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:49.161] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:49.398] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:49.398] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:49.399] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:50.360] releasing exclusive lock for power action action=start lock_id=99a544d7-6f9e-11ed-a3d4-0242ac160002 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:30:50.361] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=dafdf17f-9895-4b98-beb5-7c8bd82c050e event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:30:50.361] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:50.361] acquired exclusive lock on power actions, processing event... action=start lock_id=9a5c64c4-6f9e-11ed-a3d4-0242ac160002 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:50.361] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:50.512] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:50.512] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:50.513] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:51.464] releasing exclusive lock for power action action=start lock_id=9a5c64c4-6f9e-11ed-a3d4-0242ac160002 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:30:51.464] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:30:51.464] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:30:51.465] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:33:46.498] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 20:33:46.498] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 20:33:46.498] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 20:33:46.498] checking for pterodactyl system user username={988 988}
+ INFO: [Nov 28 20:33:46.498] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 20:33:46.498] fetching list of servers from API
+ INFO: [Nov 28 20:33:46.725] processing servers returned by the API total_configs=1
+ INFO: [Nov 28 20:33:46.725] creating new server object from API response server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:33:46.725] finished processing server configurations duration=538.8µs
+ INFO: [Nov 28 20:33:46.727] finished loading configuration for server server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:33:46.727] configuring server environment and restoring to previous state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:33:46.728] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 20:33:46.728] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 20:33:46.729] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ INFO: [Nov 28 20:34:04.600] acquired exclusive lock on power actions, processing event... action=start lock_id=0e22cd1c-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:04.600] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:04.714] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:04.714] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:04.716] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:05.726] releasing exclusive lock for power action action=start lock_id=0e22cd1c-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:34:05.726] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=11026f8c-e223-4aac-80d7-af1ef87f52a9 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:34:05.726] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:05.727] acquired exclusive lock on power actions, processing event... action=start lock_id=0eced825-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:05.727] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:05.841] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:05.841] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:05.842] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:06.791] releasing exclusive lock for power action action=start lock_id=0eced825-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:34:06.791] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:34:06.791] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:34:06.792] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:12.844] syncing server state with remote source before executing installation process server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:13.065] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:13.211] beginning installation process for server server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:15.836] creating install container for server process install_script=/tmp/pterodactyl/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf/install.sh server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:38:16.004] failed to complete server re-install process error=Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+ INFO: [Nov 28 20:38:16.204] acquired exclusive lock on power actions, processing event... action=start lock_id=a41aab1e-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:16.204] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:16.361] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:16.362] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:16.362] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:17.368] releasing exclusive lock for power action action=start lock_id=a41aab1e-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:38:17.368] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf error_identifier=2839e7a1-96d4-40b2-bf15-a7a02c222031 event=set state server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:38:17.368] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:17.369] acquired exclusive lock on power actions, processing event... action=start lock_id=a4cc5110-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:17.369] syncing server configuration with panel server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:17.521] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:17.522] performing server limit modification on-the-fly server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:17.523] completed server preflight, starting boot process... server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:18.467] releasing exclusive lock for power action action=start lock_id=a4cc5110-6f9f-11ed-9ea9-0242ac130008 server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:38:18.468] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:38:18.468] detected server as entering a crashed state; running crash handler server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:18.468] did not restart server after crash; occurred too soon after the last server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ INFO: [Nov 28 20:38:58.147] destroying all registered sinks for server instance server=c6ba8d90-3948-4701-88f1-c1df6e7dbbbf
+ERROR: [Nov 28 20:41:21.177] failed to create server environment during install process error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/server.(*Server).CreateEnvironment
+	github.com/pterodactyl/wings/server/server.go:250
+github.com/pterodactyl/wings/router.postCreateServer.func1
+	github.com/pterodactyl/wings/router/router_system.go:73
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:41:45.669] acquired exclusive lock on power actions, processing event... action=start lock_id=20f47438-6fa0-11ed-9ea9-0242ac130008 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:45.669] syncing server configuration with panel server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:45.821] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:45.822] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:45.823] completed server preflight, starting boot process... server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:46.803] releasing exclusive lock for power action action=start lock_id=20f47438-6fa0-11ed-9ea9-0242ac130008 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ERROR: [Nov 28 20:41:46.803] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 error_identifier=b931840d-915f-481a-8af4-6e12abaf27f5 event=set state server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:41:46.803] detected server as entering a crashed state; running crash handler server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:46.804] acquired exclusive lock on power actions, processing event... action=start lock_id=21a18dca-6fa0-11ed-9ea9-0242ac130008 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:46.804] syncing server configuration with panel server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:46.952] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:46.952] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:46.953] completed server preflight, starting boot process... server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:47.964] releasing exclusive lock for power action action=start lock_id=21a18dca-6fa0-11ed-9ea9-0242ac130008 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ERROR: [Nov 28 20:41:47.965] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:41:47.965] detected server as entering a crashed state; running crash handler server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:41:47.965] did not restart server after crash; occurred too soon after the last server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:47:59.651] writing log files to disk path=/var/log/pterodactyl/wings.log
+ INFO: [Nov 28 20:47:59.651] loading configuration from file config_file=/etc/pterodactyl/config.yml
+ INFO: [Nov 28 20:47:59.651] configured wings with system timezone timezone=America/Vancouver
+ INFO: [Nov 28 20:47:59.651] checking for pterodactyl system user username={988 988}
+ INFO: [Nov 28 20:47:59.652] configured system user successfully gid=988 uid=988 username=pterodactyl
+ INFO: [Nov 28 20:47:59.652] fetching list of servers from API
+ INFO: [Nov 28 20:47:59.908] processing servers returned by the API total_configs=1
+ INFO: [Nov 28 20:47:59.908] creating new server object from API response server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:47:59.908] finished processing server configurations duration=402.38µs
+ INFO: [Nov 28 20:47:59.909] finished loading configuration for server server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:47:59.909] configuring server environment and restoring to previous state server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:47:59.910] configuring internal webserver host_address=0.0.0.0 host_port=443 use_auto_tls=false use_ssl=false
+ INFO: [Nov 28 20:47:59.910] updating server states on Panel: marking installing/restoring servers as normal
+ INFO: [Nov 28 20:47:59.911] sftp server listening for connections listen=0.0.0.0:2022 public_key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBl66iKf+7lVbPQvB95jk4owk5obCeT26xbb38Zq/TwX
+ INFO: [Nov 28 20:48:26.343] acquired exclusive lock on power actions, processing event... action=start lock_id=0fc67534-6fa1-11ed-8a97-0242ac160002 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:26.343] syncing server configuration with panel server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:26.499] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:26.499] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:26.500] completed server preflight, starting boot process... server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:27.491] releasing exclusive lock for power action action=start lock_id=0fc67534-6fa1-11ed-8a97-0242ac160002 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ERROR: [Nov 28 20:48:27.491] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 error_identifier=a268e311-98bc-446b-b0d7-c6ae8e1109b4 event=set state server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:48:27.491] detected server as entering a crashed state; running crash handler server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:27.491] acquired exclusive lock on power actions, processing event... action=start lock_id=1075a80e-6fa1-11ed-8a97-0242ac160002 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:27.491] syncing server configuration with panel server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:27.636] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:27.636] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:27.637] completed server preflight, starting boot process... server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:28.580] releasing exclusive lock for power action action=start lock_id=1075a80e-6fa1-11ed-8a97-0242ac160002 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ERROR: [Nov 28 20:48:28.581] failed to handle server crash error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/server.(*Server).handleServerCrash
+	github.com/pterodactyl/wings/server/crash.go:88
+github.com/pterodactyl/wings/server.(*Server).OnStateChange.func1
+	github.com/pterodactyl/wings/server/server.go:323
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:48:28.581] detected server as entering a crashed state; running crash handler server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:28.581] did not restart server after crash; occurred too soon after the last server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:53.094] syncing server state with remote source before executing installation process server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:53.223] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:53.330] beginning installation process for server server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:48:54.355] creating install container for server process install_script=/tmp/pterodactyl/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4/install.sh server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ERROR: [Nov 28 20:48:54.482] failed to complete server re-install process error=Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+ INFO: [Nov 28 20:49:01.327] acquired exclusive lock on power actions, processing event... action=start lock_id=24a084db-6fa1-11ed-8a97-0242ac160002 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:49:01.327] syncing server configuration with panel server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:49:01.439] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:49:01.439] performing server limit modification on-the-fly server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:49:01.440] completed server preflight, starting boot process... server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:49:02.556] releasing exclusive lock for power action action=start lock_id=24a084db-6fa1-11ed-8a97-0242ac160002 server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ERROR: [Nov 28 20:49:02.556] error processing websocket event "set state" error=environment/docker: failed to create container: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4 error_identifier=864f783b-3d3a-40f4-b882-1ca8a16da5a7 event=set state server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+
+Stacktrace:
+Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /var/lib/pterodactyl/volumes/fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+environment/docker: failed to create container
+github.com/pterodactyl/wings/environment/docker.(*Environment).Create
+	github.com/pterodactyl/wings/environment/docker/container.go:238
+github.com/pterodactyl/wings/environment/docker.(*Environment).OnBeforeStart
+	github.com/pterodactyl/wings/environment/docker/power.go:43
+github.com/pterodactyl/wings/environment/docker.(*Environment).Start
+	github.com/pterodactyl/wings/environment/docker/power.go:105
+github.com/pterodactyl/wings/server.(*Server).HandlePowerAction
+	github.com/pterodactyl/wings/server/power.go:134
+github.com/pterodactyl/wings/router/websocket.(*Handler).HandleInbound
+	github.com/pterodactyl/wings/router/websocket/websocket.go:356
+github.com/pterodactyl/wings/router.getServerWebsocket.func3
+	github.com/pterodactyl/wings/router/router_server_ws.go:85
+runtime.goexit
+	runtime/asm_amd64.s:1581
+
+
+
+ INFO: [Nov 28 20:49:02.556] detected server as entering a crashed state; running crash handler server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4
+ INFO: [Nov 28 20:49:02.557] did not restart server after crash; occurred too soon after the last server=fa88b4ea-71ea-434e-87a2-d92b11c9e9a4

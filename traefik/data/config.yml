@@ -1,0 +1,115 @@
+tcp:
+  routers:
+    minecraft-fab:
+      entryPoints:
+        - "minecraft"
+      rule: "HostSNI(`*`)"
+      service: minecraft01
+
+
+  services:
+    minecraft01:
+      loadBalancer:
+        servers:
+          - address: "192.168.1.85:27001"
+
+
+
+http:
+ #region routers
+  routers:
+    gameserver-node-one:
+      entryPoints:
+        - "https"
+      rule: "Host(`gameserver-node-01.frigon-e.ca`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: gameserver-node-01
+
+  services:
+    gameserver-node-01:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.85:443"
+        passHostHeader: true
+
+  middlewares:
+    crowdsec-bouncer:
+      forwardauth:
+        address: http://bouncer-traefik:8080/api/v1/forwardAuth
+        trustForwardHeader: true
+
+    https-redirectscheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    default-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+
+    cors-all:
+      headers:
+        customRequestHeaders:
+          Access-Control-Allow-Origin: "origin-list-or-null"
+          Sec-Fetch-Site: "cross-site"
+          X-Forwarded-Proto: "https"
+          Access-Control-Allow-Headers: "*, Authorization"
+        customResponseHeaders:
+          Access-Control-Allow-Origin: "*"
+          Sec-Fetch-Site: "cross-site"
+          X-Forwarded-Proto: "https"
+          Access-Control-Allow-Headers: "*, Authorization"
+        accessControlAllowMethods:
+          - OPTIONS
+          - POST
+          - GET
+          - PUT
+          - DELETE
+          - PATCH
+        accessControlAllowHeaders:
+          - "*, Authorization"
+        accessControlExposeHeaders:
+          - "*, Authorization"
+        accessControlMaxAge: 100
+        addVaryHeader: true
+        accessControlAllowCredentials: true
+        accessControlAllowOriginList:
+          - "*"
+
+    #Not currently used
+    idrac:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+
+          #default-whitelist:
+          #ipWhiteList:
+          #sourceRange:
+          #- "10.0.0.0/8"
+          #- "192.168.0.0/16"
+          #- "172.16.0.0/12"
+          #- "154.20.0.0/16"
+
+    secured:
+      chain:
+        middlewares:
+          - default-whitelist
+          - default-headers
